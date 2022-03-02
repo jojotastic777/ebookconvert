@@ -11,8 +11,8 @@ Let me make myself clear: *If you break this, I will not fix it.* Fix it yoursel
 Fair warning, the code for this thing is a fucking *mess.*
 
 ** Dependencies:
-- `pandoc`
-- `bash`
+- ~pandoc~
+- ~bash~
   - If you're running windows, use WSL. Git Bash might also work, but if it doesn't I'm not fixing it.
 - That's it.
 
