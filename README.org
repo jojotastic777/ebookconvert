@@ -1,5 +1,4 @@
 #+TITLE: epubconvert
-* Epubconvert
 ** Introduction
 I wrote a template for `pandoc` to allow for the conversion of EPUB-formatted ebooks (and possibly other things, though I didn't check) to a nice-looking, /self-contained/ HTML-based reader.
 
