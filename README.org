@@ -1,0 +1,22 @@
+#+TITLE: epubconvert
+* Epubconvert
+** Introduction
+I wrote a template for `pandoc` to allow for the conversion of EPUB-formatted ebooks (and possibly other things, though I didn't check) to a nice-looking, /self-contained/ HTML-based reader.
+
+Then, I wrote a quick shell script to wrap it up nicely.
+
+Now, I'm putting it onto Github for other people to +break+ /use,/ even if I don't intend to support it any.
+
+Let me make myself clear: *If you break this, /I will not fix it./* Fix it yourself.
+
+** Dependencies:
+- `pandoc`
+- `bash`
+  - If you're running windows, use WSL. Git Bash might also work, but if it doesn't I'm not fixing it.
+- That's it.
+
+** Usage Instructions
+1. Clone this repository somewhere. I personally recommend =~/.local/share/epubconvert=, but you can really put it anywhere.
+2. Add =epubconvert/bin= to your PATH.
+   - Example: Add ~export PATH=$PATH:$HOME/.local/share/epubconvert/bin~ to your =.bashrc=, if you cloned the repository to =~/.local/share/epubconvert=.
+3. =epubconvert <input.epub>=.

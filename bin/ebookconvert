@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+DEST_FILE=`echo $1 | sed -En "s/\.epub$/\.html/p"`
+
+echo "Converting $1 to universal HTML."
+echo "Output file will be: $DEST_FILE"
+
+pandoc "$1" -o "$DEST_FILE" --template $HOME/.local/share/ebookconvert/template.html
