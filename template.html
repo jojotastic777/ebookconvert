@@ -1,287 +1,287 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-$for(author-meta)$
-  <meta name="author" content="$author-meta$" />
-$endfor$
-$if(date-meta)$
-  <meta name="dcterms.date" content="$date-meta$" />
-$endif$
-$if(keywords)$
-  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
-$endif$
-$if(description-meta)$
-  <meta name="description" content="$description-meta$" />
-$endif$
-  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
-  <style>
-    $styles.html()$
-  </style>
-$for(css)$
-  <link rel="stylesheet" href="$css$" />
-$endfor$
-$if(math)$
-  $math$
-$endif$
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-$for(header-includes)$
-  $header-includes$
-  $endfor$
-  <style>
-    html {
-        background-color: #282828;
-        color: #fbf1c7;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    $for(author-meta)$
+    <meta name="author" content="$author-meta$" />
+    $endfor$
+    $if(date-meta)$
+    <meta name="dcterms.date" content="$date-meta$" />
+    $endif$
+    $if(keywords)$
+    <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+    $endif$
+    $if(description-meta)$
+    <meta name="description" content="$description-meta$" />
+    $endif$
+    <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+    <style>
+      $styles.html()$
+    </style>
+    $for(css)$
+    <link rel="stylesheet" href="$css$" />
+    $endfor$
+    $if(math)$
+    $math$
+    $endif$
+    <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+        <![endif]-->
+         $for(header-includes)$
+         $header-includes$
+         $endfor$
+         <style>
+           html {
+               background-color: #282828;
+               color: #fbf1c7;
 
-        font-family: "Roboto Slab";
-        font-size: 1.5em;
-    }
+               font-family: "Roboto Slab";
+               font-size: 1.5em;
+           }
 
-    body {
-        display: grid;
-        grid-template-rows: auto auto auto;
-        margin: 0;
-        padding: 0;
-        max-width: 100vw;
-        height: 100vh;
-        box-sizing: border-box;
+           body {
+               display: grid;
+               grid-template-rows: auto auto auto;
+               margin: 0;
+               padding: 0;
+               max-width: 100vw;
+               height: 100vh;
+               box-sizing: border-box;
 
-        overflow-y: hidden;
-    }
+               overflow-y: hidden;
+           }
 
-    input {
-        all: unset;
-    }
+           input {
+               all: unset;
+           }
 
-    #progress-indicator {
-        display: flex;
-        align-items: center;
-        gap: 1ch;
-    }
-    
-    #progress-goto {
-        display: flex;
-        justify-content: flex-end;
-        gap: 1ch;
+           #progress-indicator {
+               display: flex;
+               align-items: center;
+               gap: 1ch;
+           }
+           
+           #progress-goto {
+               display: flex;
+               justify-content: flex-end;
+               gap: 1ch;
 
-        margin-top: 0.2em;
-        margin-bottom: 0.2em;
-    }
+               margin-top: 0.2em;
+               margin-bottom: 0.2em;
+           }
 
-    #progress-goto > input {
-        background-color: #504945;
-        color: #d5c4a1;
+           #progress-goto > input {
+               background-color: #504945;
+               color: #d5c4a1;
 
-        border-style: solid;
-        border-width: 1px;
-        border-color: #665c54;
+               border-style: solid;
+               border-width: 1px;
+               border-color: #665c54;
 
-        width: 10em;
+               width: 10em;
 
-        font-size: 0.6em;
-        padding: 0.2em;
-    }
+               font-size: 0.6em;
+               padding: 0.2em;
+           }
 
-    #progress-goto ::placeholder {
-        color: #d5c4a1;
-    }
+           #progress-goto ::placeholder {
+               color: #d5c4a1;
+           }
 
-    #goto-button {
-        background-color: #504945;
-        color: #d5c4a1;
+           #goto-button {
+               background-color: #504945;
+               color: #d5c4a1;
 
-        border-style: solid;
-        border-width: 1px;
-        border-color: #665c54;
+               border-style: solid;
+               border-width: 1px;
+               border-color: #665c54;
 
-        width: 2em;
+               width: 2em;
 
-        text-align: center;
-        
-        user-select: none;
+               text-align: center;
+               
+               user-select: none;
 
-        transition: all 200ms;
-    }
+               transition: all 200ms;
+           }
 
-    #goto-button:hover {
-        background-color: #665c54;
-        color: #bdae93;
-        border-color: #7c6f64;
-    }
+           #goto-button:hover {
+               background-color: #665c54;
+               color: #bdae93;
+               border-color: #7c6f64;
+           }
 
-    #reader-header {
-        display: grid;
-        grid-template-rows: 1fr;
-        grid-template-columns: 1fr 1fr;
+           #reader-header {
+               display: grid;
+               grid-template-rows: 1fr;
+               grid-template-columns: 1fr 1fr;
 
-        padding-left: 1ch;
-        padding-right: 1ch;
-        
-        background-color: #3c3836;
-        color: #ebdbb2;
-        
-        border-bottom-style: solid;
-        border-bottom-width: 1px;
-        border-bottom-color: #504945;
-    }
+               padding-left: 1ch;
+               padding-right: 1ch;
+               
+               background-color: #3c3836;
+               color: #ebdbb2;
+               
+               border-bottom-style: solid;
+               border-bottom-width: 1px;
+               border-bottom-color: #504945;
+           }
 
-    #reader-body {
-        overflow-y: auto;
-    }
+           #reader-body {
+               overflow-y: auto;
+           }
 
-    #reader-footer {
-        display: grid;
-        grid-template-rows: 1fr;
-        grid-template-columns: 1fr 1fr;
+           #reader-footer {
+               display: grid;
+               grid-template-rows: 1fr;
+               grid-template-columns: 1fr 1fr;
 
-        padding-left: 1ch;
-        padding-right: 1ch;
-        
-        background-color: #3c3836;
-        color: #ebdbb2;
-        
-        border-top-style: solid;
-        border-top-width: 1px;
-        border-top-color: #504945;
-    }
+               padding-left: 1ch;
+               padding-right: 1ch;
+               
+               background-color: #3c3836;
+               color: #ebdbb2;
+               
+               border-top-style: solid;
+               border-top-width: 1px;
+               border-top-color: #504945;
+           }
 
-    #content {
-        max-width: 50em;
-        margin-left: auto;
-        margin-right: auto;
-    }
+           #content {
+               max-width: 50em;
+               margin-left: auto;
+               margin-right: auto;
+           }
 
-    img, image, svg {
-        display: none;
-    }
+           img, image, svg {
+               display: none;
+           }
 
-    a {
-        color: #076678;
-    }
+           a {
+               color: #076678;
+           }
 
-    a:visited {
-        color: #8f3f71;
-    }
+           a:visited {
+               color: #8f3f71;
+           }
 
-    .ttb-drop-cap {
-        font-size: 1.25em;
-    }
+           .ttb-drop-cap {
+               font-size: 1.25em;
+           }
 
-    .ttb-small-caps {
-        font-size: 0.75em;
-    }
+           .ttb-small-caps {
+               font-size: 0.75em;
+           }
 
-    .ttb-italic-text {
-        font-style: italic;
-        margin-right: 0.25ch;
-    }
+           .ttb-italic-text {
+               font-style: italic;
+               margin-right: 0.25ch;
+           }
 
-    .ttb-bold-text {
-        font-weight: bold;
-    }
+           .ttb-bold-text {
+               font-weight: bold;
+           }
 
-    .ttb-bold-italic-text {
-        font-style: italic;
-        font-weight: bold;
-    }
+           .ttb-bold-italic-text {
+               font-style: italic;
+               font-weight: bold;
+           }
 
-    .sgc-toc-level, .sgc-toc-level1 {
-        display: none;
-    }
-  </style>
+           .sgc-toc-level, .sgc-toc-level1 {
+               display: none;
+           }
+         </style>
   </head>
-<body>
-<div id="reader-header">
-  <div id="chapter-indic"></div>
-  <div id="title-indic" style="text-align: right;">$title$</div>
-</div>
-<div id="reader-body">
-<div id="content">
-$for(include-before)$
-$include-before$
-$endfor$
-$if(title)$
-<header id="title-block-header">
-<h1 class="title">$title$</h1>
-$if(subtitle)$
-<p class="subtitle">$subtitle$</p>
-$endif$
-$for(author)$
-<p class="author">$author$</p>
-$endfor$
-</header>
-$endif$
-$if(toc)$
-<nav id="$idprefix$TOC" role="doc-toc">
-$if(toc-title)$
-<h2 id="$idprefix$toc-title">$toc-title$</h2>
-$endif$
-$table-of-contents$
-</nav>
-$endif$
-$body$
-$for(include-after)$
-$include-after$
-$endfor$
-</div>
-</div>
-<div id="reader-footer">
-  <div id="progress-indicator">
-    <div id="progress-number">
-      <span id="position-marker">0</span>/<span id="position-max">0</span>
+  <body>
+    <div id="reader-header">
+      <div id="chapter-indic"></div>
+      <div id="title-indic" style="text-align: right;">$title$</div>
     </div>
-    <div id="progress-perc">
-      (<span id="position-perc">0</span>%)
+    <div id="reader-body">
+      <div id="content">
+        $for(include-before)$
+        $include-before$
+        $endfor$
+        $if(title)$
+        <header id="title-block-header">
+          <h1 class="title">$title$</h1>
+          $if(subtitle)$
+          <p class="subtitle">$subtitle$</p>
+          $endif$
+          $for(author)$
+          <p class="author">$author$</p>
+          $endfor$
+        </header>
+        $endif$
+        $if(toc)$
+        <nav id="$idprefix$TOC" role="doc-toc">
+          $if(toc-title)$
+          <h2 id="$idprefix$toc-title">$toc-title$</h2>
+          $endif$
+          $table-of-contents$
+        </nav>
+        $endif$
+        $body$
+        $for(include-after)$
+        $include-after$
+        $endfor$
+      </div>
     </div>
-  </div>
-  <div id="progress-goto" style="text-align: right;">
-    <input placeholder="Page Number" id="goto-input" />
-    <div id="goto-button" onclick="gotoHandler()">Go</div>
-  </div>
-</div>
-<script>
-  const scrollDisplayDivisor = 750
-  
-  const chapterIndic = document.getElementById("chapter-indic")
-
-  const readerBody = document.getElementById("reader-body")
-
-  const positionMarker = document.getElementById("position-marker")
-  const positionMax = document.getElementById("position-max")
-  const positionPerc = document.getElementById("position-perc")
-
-  const gotoInput = document.getElementById("goto-input")
-
-  const headers = [ ...document.querySelectorAll("h1, h2, h3, h4, h5, h6") ]
-        .map(elem => ({ content: elem.innerText, position: elem.offsetTop }))
-        .filter(h => h.content !== document.title)
-
-  const gotoHandler = () => {
-      const gotoDest = parseInt(gotoInput.value) * scrollDisplayDivisor
-      if (Number.isNaN(gotoDest)) return
+    <div id="reader-footer">
+      <div id="progress-indicator">
+        <div id="progress-number">
+          <span id="position-marker">0</span>/<span id="position-max">0</span>
+        </div>
+        <div id="progress-perc">
+          (<span id="position-perc">0</span>%)
+        </div>
+      </div>
+      <div id="progress-goto" style="text-align: right;">
+        <input placeholder="Page Number" id="goto-input" />
+        <div id="goto-button" onclick="gotoHandler()">Go</div>
+      </div>
+    </div>
+    <script>
+      const scrollDisplayDivisor = 750
       
-      readerBody.scrollTop = gotoDest
-      gotoInput.value = ""
-  }
-  
-  const scrollHandler = () => {
-      const prevHeaders = headers.filter(h => h.position <= readerBody.scrollTop)
-      const currHeaderContent = prevHeaders[prevHeaders.length - 1]?.content ?? ""
+      const chapterIndic = document.getElementById("chapter-indic")
 
-      chapterIndic.innerText = currHeaderContent
+      const readerBody = document.getElementById("reader-body")
+
+      const positionMarker = document.getElementById("position-marker")
+      const positionMax = document.getElementById("position-max")
+      const positionPerc = document.getElementById("position-perc")
+
+      const gotoInput = document.getElementById("goto-input")
+
+      const headers = [ ...document.querySelectorAll("h1, h2, h3, h4, h5, h6") ]
+            .map(elem => ({ content: elem.innerText, position: elem.offsetTop }))
+            .filter(h => h.content !== document.title)
+
+      const gotoHandler = () => {
+          const gotoDest = parseInt(gotoInput.value) * scrollDisplayDivisor
+          if (Number.isNaN(gotoDest)) return
+          
+          readerBody.scrollTop = gotoDest
+          gotoInput.value = ""
+      }
       
-      positionMarker.innerText = Math.floor(readerBody.scrollTop / scrollDisplayDivisor)
-      positionMax.innerText = Math.floor(readerBody.scrollHeight / scrollDisplayDivisor)
-      positionPerc.innerText = (readerBody.scrollTop / readerBody.scrollHeight * 100).toFixed(2)
-  }
+      const scrollHandler = () => {
+          const prevHeaders = headers.filter(h => h.position <= readerBody.scrollTop)
+          const currHeaderContent = prevHeaders[prevHeaders.length - 1]?.content ?? ""
 
-  scrollHandler()
-  
-  readerBody.addEventListener("scroll", scrollHandler) 
-</script>
-</body>
+          chapterIndic.innerText = currHeaderContent
+          
+          positionMarker.innerText = Math.floor(readerBody.scrollTop / scrollDisplayDivisor)
+          positionMax.innerText = Math.floor(readerBody.scrollHeight / scrollDisplayDivisor)
+          positionPerc.innerText = (readerBody.scrollTop / readerBody.scrollHeight * 100).toFixed(2)
+      }
+
+      scrollHandler()
+      
+      readerBody.addEventListener("scroll", scrollHandler) 
+    </script>
+  </body>
 </html>
